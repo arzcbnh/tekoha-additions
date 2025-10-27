@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "tekoha-additions",
+  "version": "${version}",
+  "name": "Tekohá Additions",
+  "description": "Useful additions for the Tekohá server",
+  "authors": [
+    {
+      "name": "arzcbnh",
+      "contact": {
+        "email": "contact@arzcbnh.dev",
+        "homepage": "https://arzcbnh.dev"
+      }
+    }
+  ],
+  "contact": {
+    "issues": "https://github.com/arzcbnh/tekoha-additions/issues",
+    "sources": "https://github.com/arzcbnh/tekoha-additions"
+  },
+  "license": "GPL-3.0-only",
+  "icon": "assets/tekoha/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.arzcbnh.tekoha.customchat.CustomChat"
+    ]
+  },
+  "mixins": [
+    "customchat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric-api": "${fabric_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
