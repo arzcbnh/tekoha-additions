@@ -4,9 +4,17 @@
   "package": "dev.arzcbnh.tekoha.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AnvilMenuMixin",
+    "BlockBehaviourMixin",
+    "EnchantmentsMixin",
+    "FarmBlockMixin",
+    "LadderBlockMixin",
     "LivingEntityAccessor",
     "LivingEntityMixin",
-    "ServerCommonPacketListenerImplMixin"
+    "ServerCommonPacketListenerImplAccessor",
+    "ServerCommonPacketListenerImplMixin",
+    "ServerGamePacketListenerImplMixin",
+    "PlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

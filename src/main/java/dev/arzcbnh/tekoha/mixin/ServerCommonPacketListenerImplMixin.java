@@ -14,40 +14,40 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerCommonPacketListenerImpl.class)
 public abstract class ServerCommonPacketListenerImplMixin {
-    @Inject(method = "handleCustomClickAction", at = @At("HEAD"))
-    private void handleCustomClickAction(
-            ServerboundCustomClickActionPacket serverboundCustomClickActionPacket, CallbackInfo ci) {
-        if ((Object) this instanceof ServerGamePacketListenerImpl impl) {
-            final var id = serverboundCustomClickActionPacket.id();
-            final var payload = serverboundCustomClickActionPacket.payload();
-            final var player = impl.getPlayer();
-
-            if (!id.getNamespace().equals(TekohaAdditions.MOD_ID) || payload.isEmpty()) {
-                return;
-            }
-
-            switch (id.getPath()) {
-                case "auth/login": {
-                    AuthRequestCallback.LOGIN
-                            .invoker()
-                            .offer(
-                                    player,
-                                    payload.flatMap(Tag::asCompound)
-                                            .flatMap(tag -> tag.getString("password"))
-                                            .orElse(""));
-                    break;
-                }
-                case "auth/signup": {
-                    AuthRequestCallback.SIGNUP
-                            .invoker()
-                            .offer(
-                                    player,
-                                    payload.flatMap(Tag::asCompound)
-                                            .flatMap(tag -> tag.getString("password"))
-                                            .orElse(""));
-                    break;
-                }
-            }
-        }
-    }
+//    @Inject(method = "handleCustomClickAction", at = @At("HEAD"))
+//    private void handleCustomClickAction(
+//            ServerboundCustomClickActionPacket serverboundCustomClickActionPacket, CallbackInfo ci) {
+//        if ((Object) this instanceof ServerGamePacketListenerImpl impl) {
+//            final var id = serverboundCustomClickActionPacket.id();
+//            final var payload = serverboundCustomClickActionPacket.payload();
+//            final var player = impl.getPlayer();
+//
+//            if (!id.getNamespace().equals(TekohaAdditions.MOD_ID) || payload.isEmpty()) {
+//                return;
+//            }
+//
+//            switch (id.getPath()) {
+//                case "auth/login": {
+//                    AuthRequestCallback.LOGIN
+//                            .invoker()
+//                            .offer(
+//                                    player,
+//                                    payload.flatMap(Tag::asCompound)
+//                                            .flatMap(tag -> tag.getString("password"))
+//                                            .orElse(""));
+//                    break;
+//                }
+//                case "auth/signup": {
+//                    AuthRequestCallback.SIGNUP
+//                            .invoker()
+//                            .offer(
+//                                    player,
+//                                    payload.flatMap(Tag::asCompound)
+//                                            .flatMap(tag -> tag.getString("password"))
+//                                            .orElse(""));
+//                    break;
+//                }
+//            }
+//        }
+//    }
 }

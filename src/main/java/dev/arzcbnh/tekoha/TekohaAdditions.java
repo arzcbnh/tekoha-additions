@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 
 public class TekohaAdditions implements ModInitializer {
     public static final String MOD_ID = "tekoha";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static final ModConfig CONFIG = ModConfig.load();
+//    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+//    public static final ModConfig CONFIG = ModConfig.load();
 
     @Override
     public void onInitialize() {
-        AuthCommands.init();
-        ArmorCommands.init();
+//        AuthCommands.init();
+//        ArmorCommands.init();
     }
 }

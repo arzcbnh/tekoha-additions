@@ -13,13 +13,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-    @Inject(method = "handleEquipmentChanges", at = @At("HEAD"))
-    private void tekoha$removeHiddenEquipment(Map<EquipmentSlot, ItemStack> map, CallbackInfo ci) {
-        if ((LivingEntity) (Object) this instanceof ServerPlayer player) {
-            final var data = PlayerData.of(player);
-            EquipmentSlot.VALUES.stream()
-                    .filter(data::isEquipmentHidden)
-                    .forEach(slot -> map.put(slot, ItemStack.EMPTY));
-        }
-    }
+//    @Inject(method = "handleEquipmentChanges", at = @At("HEAD"))
+//    private void tekoha$removeHiddenEquipment(Map<EquipmentSlot, ItemStack> map, CallbackInfo ci) {
+//        if ((LivingEntity) (Object) this instanceof ServerPlayer player) {
+//            final var data = PlayerData.of(player);
+//            EquipmentSlot.VALUES.stream()
+//                    .filter(data::isEquipmentHidden)
+//                    .forEach(slot -> map.put(slot, ItemStack.EMPTY));
+//        }
+//    }
 }
