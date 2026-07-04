@@ -22,10 +22,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
+      "dev.arzcbnh.tekoha.auth.Auth",
       "dev.arzcbnh.tekoha.customchat.CustomChat"
     ]
   },
   "mixins": [
+    "auth.mixins.json",
     "customchat.mixins.json"
   ],
   "depends": {
