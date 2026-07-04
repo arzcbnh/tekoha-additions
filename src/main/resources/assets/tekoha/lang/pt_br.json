@@ -1,4 +1,7 @@
 {
+  "tekoha.auth.clear.success": "Token removido.",
+  "tekoha.auth.login.fail": "Token inválido.",
+  "tekoha.auth.set.success": "Token definido.",
   "tekoha.customchat.fail.decode": "Não foi possível decodificar. Os formatos suportados são decimal (123) e hexadecimal (#ff0000).",
   "tekoha.customchat.fail.bounds": "Código de cor fora do intervalo. O intervalo suportado vai de 0 a %s.",
   "tekoha.customchat.success.clear": "Cor redefinida para o padrão.",

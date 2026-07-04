@@ -1,4 +1,7 @@
 {
+  "tekoha.auth.clear.success": "Token cleared.",
+  "tekoha.auth.login.fail": "Invalid token.",
+  "tekoha.auth.set.success": "Token set.",
   "tekoha.customchat.fail.decode": "Could not decode. Supported formats are decimal (123) and hexadecimal (#ff0000).",
   "tekoha.customchat.fail.bounds": "Color code out of bounds. Supported range is from 0 to %s.",
   "tekoha.customchat.success.clear": "Color set to default.",
