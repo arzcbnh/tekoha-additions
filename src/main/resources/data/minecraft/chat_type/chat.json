@@ -4,7 +4,7 @@
       "sender",
       "content"
     ],
-    "translation_key": "%s »\n%s"
+    "translation_key": "%s » %s"
   },
   "narration": {
     "parameters": [

@@ -1,22 +1,6 @@
 {
-  "tekoha.auth.allowed": "Manually allowed %s.",
-  "tekoha.auth.already_authenticated": "User already authenticated.",
-  "tekoha.auth.command": "/login <password>",
-  "tekoha.auth.deleted": "Deleted data for %s",
-  "tekoha.auth.forbade": "Manually forbade %s",
-  "tekoha.auth.invalid_password": "The password must be between 6 and 64 characters long.",
-  "tekoha.auth.registered": "User registered successfully.",
-  "tekoha.auth.success": "User authenticated successfully.",
-  "tekoha.auth.updated": "Password updated successfully.",
-  "tekoha.auth.welcome": "Use %s to authenticate or register.",
-  "tekoha.auth.wrong_password": "Wrong password.",
-  "tekoha.armor.menu.chest": "Chestplate",
-  "tekoha.armor.menu.feet": "Boots",
-  "tekoha.armor.menu.head": "Helmet",
-  "tekoha.armor.menu.hide": "Hide",
-  "tekoha.armor.menu.hide_all": "Hide all",
-  "tekoha.armor.menu.legs": "Leggings",
-  "tekoha.armor.menu.show": "Show",
-  "tekoha.armor.menu.show_all": "Show all",
-  "tekoha.armor.menu.title": "Armor visibility"
+  "tekoha.customchat.fail.decode": "Could not decode. Supported formats are decimal (123) and hexadecimal (#ff0000).",
+  "tekoha.customchat.fail.bounds": "Color code out of bounds. Supported range is from 0 to %s.",
+  "tekoha.customchat.success.clear": "Color set to default.",
+  "tekoha.customchat.success.set": "Color set to %s."
 }

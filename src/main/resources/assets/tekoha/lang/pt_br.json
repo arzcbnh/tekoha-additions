@@ -1,22 +1,6 @@
 {
-  "tekoha.auth.allowed": "%s permitido manualmente.",
-  "tekoha.auth.already_authenticated": "Jogador já autenticado.",
-  "tekoha.auth.command": "/login <senha>",
-  "tekoha.auth.deleted": "Senha de %s excluída.",
-  "tekoha.auth.forbade": "%s proibido manualmente.",
-  "tekoha.auth.invalid_password": "A senha deve possuir entre 6 e 64 caracteres.",
-  "tekoha.auth.registered": "Jogador registrado com sucesso.",
-  "tekoha.auth.success": "Jogador autenticado com sucesso.",
-  "tekoha.auth.updated": "Senha atualizada com sucesso.",
-  "tekoha.auth.welcome": "Use %s para autenticar ou registrar-se.",
-  "tekoha.auth.wrong_password": "Senha incorreta.",
-  "tekoha.armor.menu.chest": "Peitoral",
-  "tekoha.armor.menu.feet": "Botas",
-  "tekoha.armor.menu.head": "Capacete",
-  "tekoha.armor.menu.hide": "Esconder",
-  "tekoha.armor.menu.hide_all": "Esconder tudo",
-  "tekoha.armor.menu.legs": "Calças",
-  "tekoha.armor.menu.show": "Exibir",
-  "tekoha.armor.menu.show_all": "Exibit tudo",
-  "tekoha.armor.menu.title": "Visibilidade da armadura"
+  "tekoha.customchat.fail.decode": "Não foi possível decodificar. Os formatos suportados são decimal (123) e hexadecimal (#ff0000).",
+  "tekoha.customchat.fail.bounds": "Código de cor fora do intervalo. O intervalo suportado vai de 0 a %s.",
+  "tekoha.customchat.success.clear": "Cor redefinida para o padrão.",
+  "tekoha.customchat.success.set": "Cor definida como %s."
 }

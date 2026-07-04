@@ -9,5 +9,3 @@ pluginManagement {
 }
 
 rootProject.name = "tekoha-additions"
-
-include("custom-chat")

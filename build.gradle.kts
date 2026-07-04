@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.fabric.loom)
-//    id("fabric-loom") version "${project.property("loom_version")}"
-//    id("com.diffplug.spotless") version "8.1.0"
+    alias(libs.plugins.spotless)
 }
 
 version = "0.1.0"
@@ -28,28 +27,30 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
-    maven { url = uri("https://maven.nucleoid.xyz") }
 }
 
 dependencies {
     minecraft(libs.minecraft)
     implementation(libs.fabric.loader)
     implementation(libs.fabric.api)
-    implementation("eu.pb4:polymer-core:0.17.1+26.2")
-//    "testImplementation"("net.fabricmc:fabric-loader-junit:${project.property("loader_version")}")
 }
 
 tasks.processResources {
+    val fabric_version = libs.versions.fabric.api.map {
+        val (major, minor) = it.substringBefore("+").split(".")
+        ">=$major.$minor"
+    }
+
     inputs.property("version", project.version)
-    inputs.property("minecraft_version", providers.gradleProperty("minecraft_version"))
-    inputs.property("loader_version", providers.gradleProperty("loader_version"))
+    inputs.property("minecraft_version", libs.versions.minecraft)
+    inputs.property("fabric_version", fabric_version)
     filteringCharset = "UTF-8"
 
     filesMatching("fabric.mod.json") {
         expand(
             "version" to project.version,
-            "minecraft_version" to providers.gradleProperty("minecraft_version").get(),
-            "loader_version" to providers.gradleProperty("loader_version").get()
+            "minecraft_version" to libs.versions.minecraft.get(),
+            "fabric_version" to fabric_version.get()
         )
     }
 }
@@ -65,29 +66,24 @@ java {
 }
 
 tasks.jar {
-    inputs.property("archivesName", project.base.archivesName)
-
-    from("LICENSE") {
-        rename { "${it}_${inputs.properties["archivesName"]}" }
-    }
+    from("LICENSE.txt")
 }
 
-//spotless {
-//    format("misc") {
-//        target("*.gradle", ".gitattributes", ".gitignore", "*.properties")
-//
-//        trimTrailingWhitespace()
-//        leadingTabsToSpaces()
-//        endWithNewline()
-//    }
-//
-//    java {
-//        palantirJavaFormat().formatJavadoc(true)
-//        formatAnnotations()
-//    }
-//
-//    json {
-//        target("src/**/*.json")
-//        gson().indentWithSpaces(2)
-//    }
-//}
+spotless {
+    format("misc") {
+        target(".gitattributes", ".gitignore", "*.kts", "*.properties", "*.toml")
+        trimTrailingWhitespace()
+        leadingTabsToSpaces()
+        endWithNewline()
+    }
+
+    java {
+        palantirJavaFormat("2.94.0").formatJavadoc(true)
+        formatAnnotations()
+    }
+
+    json {
+        target("src/**/*.json")
+        gson().indentWithSpaces(2)
+    }
+}

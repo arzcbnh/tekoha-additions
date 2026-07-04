@@ -117,3 +117,22 @@ runs/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+
+# Local agentic coding tool state
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.agents/
+.codex/
+.claude/
+.cursor/
+.windsurf/
+.continue/
+.aider*
+.roo/
+.kilocode/
+.gemini/
+.qwen/
+.opencode/
+.crush/
+.augment/
