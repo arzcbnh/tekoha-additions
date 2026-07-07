@@ -3,6 +3,9 @@ package dev.arzcbnh.tekoha.auth;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.arzcbnh.tekoha.TekohaAdditions;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -44,14 +47,34 @@ public class AuthData extends SavedData {
     public void setToken(UUID uuid, @Nullable String token) {
         if (token == null) {
             tokens.remove(uuid);
-        } else {
-            tokens.put(uuid, token);
-        }
+        } else
+            try {
+                final var sha256 = MessageDigest.getInstance("SHA-256");
+                final byte[] bytes = sha256.digest(token.getBytes());
+                final var hash = Base64.getEncoder().encodeToString(bytes);
+                tokens.put(uuid, hash);
+            } catch (NoSuchAlgorithmException e) {
+                TekohaAdditions.LOGGER.error("Failed to hash token", e);
+                return;
+            }
+
         this.setDirty();
     }
 
     public boolean isValid(UUID uuid, String token) {
-        final var stored = tokens.get(uuid);
-        return stored != null && stored.equals(token);
+        final var hash = tokens.get(uuid);
+
+        if (hash == null) {
+            return false;
+        }
+
+        try {
+            final var sha256 = MessageDigest.getInstance("SHA-256");
+            final byte[] bytes = sha256.digest(token.getBytes());
+            return MessageDigest.isEqual(bytes, Base64.getDecoder().decode(hash));
+        } catch (NoSuchAlgorithmException | IllegalArgumentException e) {
+            TekohaAdditions.LOGGER.error("Failed to validate token", e);
+            return false;
+        }
     }
 }

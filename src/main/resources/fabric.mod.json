@@ -19,7 +19,7 @@
   },
   "license": "All-Rights-Reserved",
   "icon": "assets/tekoha/icon.png",
-  "environment": "*",
+  "environment": "server",
   "entrypoints": {
     "main": [
       "dev.arzcbnh.tekoha.auth.Auth",

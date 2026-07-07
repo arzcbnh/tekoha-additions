@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.spotless)
 }
 
-version = "0.2.0"
+version = "0.2.1"
 group = "dev.arzcbnh"
 
 loom {
@@ -12,7 +12,6 @@ loom {
     mods {
         create("tekoha-additions") {
             sourceSet(sourceSets.main.get())
-            sourceSet(sourceSets.getByName("client"))
         }
     }
 }
