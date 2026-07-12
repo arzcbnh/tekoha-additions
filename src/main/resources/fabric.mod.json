@@ -23,12 +23,14 @@
   "entrypoints": {
     "main": [
       "dev.arzcbnh.tekoha.auth.Auth",
+      "dev.arzcbnh.tekoha.bonemeal.BoneMealTweaks",
       "dev.arzcbnh.tekoha.customchat.CustomChat"
     ]
   },
   "mixins": [
     "auth.mixins.json",
-    "customchat.mixins.json"
+    "customchat.mixins.json",
+    "bonemeal.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",
