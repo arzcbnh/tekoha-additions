@@ -17,7 +17,7 @@ public abstract class PlayerMixin implements PlayerMixinAccess {
     public abstract int getXpNeededForNextLevel();
 
     @Override
-    public int tekoha$getTotalXp() {
+    public int tekoha$getTotalXpPoints() {
         final int level = this.experienceLevel;
         final long experienceAtLevel;
 
@@ -33,5 +33,24 @@ public abstract class PlayerMixin implements PlayerMixinAccess {
         final int progressInCurrentLevel = (int) (this.experienceProgress * this.getXpNeededForNextLevel());
 
         return Math.toIntExact(experienceAtLevel + progressInCurrentLevel);
+    }
+
+    @Override
+    public int tekoha$getLevelXpPoints() {
+        final long level = this.experienceLevel - 1;
+
+        // https://minecraft.wiki/w/Experience#Leveling_up
+        if (level <= 15) {
+            return (int) (2 * level + 7);
+        } else if (level <= 30) {
+            return (int) (5 * level - 38);
+        } else {
+            return (int) (9 * level - 158);
+        }
+    }
+
+    @Override
+    public int tekoha$getProgressXpPoints() {
+        return (int) (this.experienceProgress * this.getXpNeededForNextLevel());
     }
 }
