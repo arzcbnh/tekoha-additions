@@ -30,7 +30,8 @@
   "mixins": [
     "auth.mixins.json",
     "customchat.mixins.json",
-    "bonemeal.mixins.json"
+    "bonemeal.mixins.json",
+    "xp.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",
